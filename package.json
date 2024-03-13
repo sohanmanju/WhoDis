@@ -1,0 +1,38 @@
+{
+  "name": "who_dis",
+  "version": "2.0.0",
+  "description": "A self-hosted discord bot that announces the name of a user that joins your voice channel",
+  "author": "Arvind Kumar <arvind@enkrypt.in> (https://arvind.io)",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2",
+    "typescript-eslint": "^7.2.0"
+  },
+  "dependencies": {
+    "@discordjs/voice": "^0.16.1",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5",
+    "ffmpeg-static": "^5.2.0",
+    "opusscript": "^0.0.8",
+    "sodium-native": "^4.0.10"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}
