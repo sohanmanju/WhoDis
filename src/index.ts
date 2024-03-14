@@ -4,6 +4,7 @@ import { Client, Events, GatewayIntentBits, VoiceChannel } from 'discord.js';
 import { log } from './log.js';
 import { playMediaFromUrl } from './play_audio_to_discord.js';
 import { getTtsMediaUrl, setVoice } from './tts.js';
+import { translate } from './translate.js';
 
 const client = new Client({
   intents: [
@@ -87,6 +88,21 @@ client.on(Events.MessageCreate, async (message) => {
         const announcementLine = `Voice changed to ${commands[1]}`;
         await speak(announcementLine, voiceChannelIdOfPromptAuthor);
         await log(announcementLine, client);
+        break;
+      }
+
+      case `${commandPrefix}translate`: {
+        const toLanguage = commands[1].toLowerCase();
+        const [, , ...text] = commands;
+        const translatedText = await translate(
+          text.join(' '),
+          toLanguage,
+          client
+        );
+        if (!translatedText) {
+          return;
+        }
+        await speak(translatedText, voiceChannelIdOfPromptAuthor);
         break;
       }
 

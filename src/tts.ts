@@ -1,6 +1,6 @@
 import config from './config.js';
 
-let voice = config.defaultVoice;
+export let voice = config.defaultVoice;
 
 export const getTtsMediaUrl = async (
   url: string,
@@ -31,14 +31,12 @@ export const setVoice = (newVoice: string): void => {
   voice = newVoice;
 };
 
-export const nativeVoiceMapping = {
-  ja: ['Mizuki', 'Takumi'],
-  zh: ['Zhiyu'],
-  'zh-cn': ['Zhiyu'],
-  'zh-tw': ['Zhiyu'],
+export const nativeVoiceMapping: Record<string, string[]> = {
   ar: ['Zeina'],
   fa: ['Zeina'],
   hi: ['Aditi', 'Raveena'],
+  ja: ['Mizuki', 'Takumi'],
   ko: ['Seoyeon'],
   ru: ['Tatyana', 'Maxim'],
+  'zh-Hans': ['Zhiyu'],
 };
